@@ -1,15 +1,22 @@
-console.log('love');
+
+var score, bttStart, playAnimation, start;
+var begin = 0;
+
 document.addEventListener('DOMContentLoaded', function(){
-	var play = document.getElementById('bttStart');
+	bttStart = document.getElementById('bttStart');
+	score = document.getElementById('score');
+	score.addEventListener('click', startGame);
+	playAnimation = requestAnimationFrame(play);
 	console.log(play.textContent);
-	play.addEventListener('click', function(){
-		console.log(play.textContent);
-		if(play.textContent == 'Play'){
-			console.log('1');
-			play.innerHTML = 'Pause';
-		}else{
-			play.innerHTML = 'Play';
-			console.log('2');
-		}
-	});
+	
 });
+
+function play(){
+
+}
+
+function startGame(){
+	buttStart.style.display = 'none';
+}
+
+

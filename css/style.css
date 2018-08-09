@@ -18,3 +18,14 @@
 	z-index: 3;
 	margin: 0 auto;
 }
+
+#car {
+	position: absolute;
+	height: 80px;
+	width: 40px;
+	bottom: 60px;
+	left: 550px;
+	border-radius: 5px;
+	background-color: red;
+	z-index: 10;
+}
