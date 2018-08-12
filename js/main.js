@@ -4,7 +4,7 @@ var background = document.getElementById('background');
 var start = document.getElementById('bttStart');
 var playGame = false;
 var playAnimation = requestAnimationFrame(play);
-var setup;
+var setup, obsMove,car;
 
 var keys = {
 	ArrowUp: false,
@@ -18,7 +18,7 @@ document.addEventListener('keydown', pressKeyOn);
 document.addEventListener('keyup', pressKeyOff);
 
 
-var car;
+
 
 function startGame(){
 	console.log('lets play');
@@ -116,7 +116,7 @@ function play(){
 }
 
 function obsMoving(){
-var obsMove = document.getElementsByClassName('obstacles');
+obsMove = document.getElementsByClassName('obstacles');
 var nnum0 = obsMove[0].offsetTop;
 var nnum1 = obsMove[1].offsetTop;
 var nnum2 = obsMove[2].offsetTop;
@@ -241,7 +241,21 @@ function update(){
 }
 
 function stop(){
-	
+	obsMove[0].style.display = 'none';
+	obsMove[1].style.display = 'none';
+
+obsMove[2].style.display = 'none';
+
+obsMove[3].style.display = 'none';
+document.getElementById('tree1').style.display = 'none';
+document.getElementById('tree2').style.display = 'none';
+document.getElementById('tree3').style.display = 'none';
+document.getElementById('tree4').style.display = 'none';
+document.getElementById('tree5').style.display = 'none';
+document.getElementById('tree6').style.display = 'none';
+	car.style.display = 'none';
+	document.getElementById('headline').innerHTML = 'Game Over';
+
 }
 
 function pressKeyOn(event){
