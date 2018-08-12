@@ -23,41 +23,7 @@ document.addEventListener('keyup', pressKeyOff);
 function startGame(){
 	console.log('lets play');
 	start.style.display = 'none';
-	var tree1 = document.createElement('div');
-	tree1.setAttribute('id', 'tree1');
-	// tree1.x = 180;
-	// tree1.y = 80;
-	background.appendChild(tree1);
 
-	var tree2 = document.createElement('div');
-	tree2.setAttribute('id', 'tree2');
-	// tree1.x = 180;
-	// tree1.y = 80;
-	background.appendChild(tree2);
-	
-	var tree3 = document.createElement('div');
-	tree3.setAttribute('id', 'tree3');
-	// tree1.x = 180;
-	// tree1.y = 80;
-	background.appendChild(tree3);
-
-	var tree4 = document.createElement('div');
-	tree4.setAttribute('id', 'tree4');
-	// tree1.x = 180;
-	// tree1.y = 80;
-	background.appendChild(tree4);
-	
-	var tree6 = document.createElement('div');
-	tree6.setAttribute('id', 'tree6');
-	// tree1.x = 180;
-	// tree1.y = 80;
-	background.appendChild(tree6);
-
-	var tree5 = document.createElement('div');
-	tree5.setAttribute('id', 'tree5');
-	// tree1.x = 180;
-	// tree1.y = 80;
-	background.appendChild(tree5);
 
 	
 	var temp = document.createElement('div');
