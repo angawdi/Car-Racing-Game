@@ -5,7 +5,7 @@ var start = document.getElementById('bttStart');
 var playGame = false;
 var playAnimation = requestAnimationFrame(play);
 var setup, obsMove,car;
-
+var numScore = 0;
 var keys = {
 	ArrowUp: false,
 	ArrowDown: false,
@@ -90,7 +90,7 @@ function startGame(){
 
 function play(){
 	if (playGame){
-		update();
+//		update();
 		treeMoving();
 		obsMoving();
 		///movement
@@ -122,35 +122,51 @@ var nnum1 = obsMove[1].offsetTop;
 var nnum2 = obsMove[2].offsetTop;
 var nnum3 = obsMove[3].offsetTop;
 
-	if(nnum0 <  520){
+	if(nnum0 <  500){
 		nnum0 = nnum0 + 1;
 	}
 	else{
+
+		numScore++;
+		// document.getElementById('score').innerHTML = '' + numScore;
+		score.innerHTML = '' + numScore;
+		checkWin();
 		nnum0 = -5;
 		obsMove[0].style.left = 150 + Math.floor(Math.random() *150) + 'px';
+
 	}
-	if(nnum2 <  520){
+	if(nnum2 <  500){
 		nnum2 = nnum2 + 1;
 	}
 	else{
 		nnum2 = -5;
-
+		numScore++;
+		// document.getElementsB('score')[0].innerHTML = '' + numScore;
+		score.innerHTML = '' +numScore;
+		checkWin();
 		obsMove[2].style.left = 150 + Math.floor(Math.random() *150) + 'px';
 	}
-	if(nnum3 <  520){
+	if(nnum3 <  500){
 		nnum3 = nnum3 + 1;
 	}
 	else{
 		nnum3 = -5;
-
+		numScore++;
+		// document.getElementById('score').innerHTML = '' + numScore;
+		score.innerHTML = '' + numScore;
+		checkWin();
 		obsMove[3].style.left = 150 + Math.floor(Math.random() *0) + 'px';
 	}
-	if(nnum1 <  520){
+	if(nnum1 <  500){
 		nnum1 = nnum1 + 1;
 	}
 	else{
 		nnum1 = -5;
+		numScore++;
 
+		// document.getElementById('score').innerHTML = '' + numScore;
+		score.innerHTML = '' + numScore;
+		checkWin();
 		obsMove[1].style.left = 150 + Math.floor(Math.random() *200) + 'px';
 	}
 
@@ -241,7 +257,20 @@ function update(){
 }
 
 function stop(){
-	obsMove[0].style.display = 'none';
+	clearGame();
+	document.getElementById('headline').innerHTML = 'Game Over';
+
+}
+
+function checkWin(){
+	if(numScore === 10){
+		clearGame();
+		document.getElementById('headline').innerHTML = 'You Win!';
+
+	}
+}
+function clearGame(){
+		obsMove[0].style.display = 'none';
 	obsMove[1].style.display = 'none';
 
 obsMove[2].style.display = 'none';
@@ -254,8 +283,6 @@ document.getElementById('tree4').style.display = 'none';
 document.getElementById('tree5').style.display = 'none';
 document.getElementById('tree6').style.display = 'none';
 	car.style.display = 'none';
-	document.getElementById('headline').innerHTML = 'Game Over';
-
 }
 
 function pressKeyOn(event){
