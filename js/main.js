@@ -36,6 +36,8 @@ function startGame(){
 	background.appendChild(temp);
 	playGame = true;
 
+	requestAnimationFrame(play);
+
 	setup = {
 	element: temp,
 	speed: 9,
@@ -75,7 +77,8 @@ function play(){
 
 function treeMoving(){
 	var move = document.getElementById('tree');
-	console.log(move.offsetTop);
+	var num = move.offsetTop + 1;
+	move.style.top = num + 'px';
 	
 }
 
