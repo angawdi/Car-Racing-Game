@@ -72,6 +72,7 @@ function startGame(){
 		var obs = document.createElement('div');
 		obs.setAttribute('class', 'obstacles');
 		obs.style.left = 150 + Math.floor(Math.random() *100*o) + 'px';
+		obs.style.top = 0 - o*200 + 'px';
 		background.appendChild(obs);
 	 }
 
@@ -121,35 +122,42 @@ var nnum1 = obsMove[1].offsetTop;
 var nnum2 = obsMove[2].offsetTop;
 var nnum3 = obsMove[3].offsetTop;
 
-	if(nnum1 <  420){
-		nnum1 = nnum1 + 3;
+	if(nnum0 <  420){
+		nnum0 = nnum0 + 2;
 	}
 	else{
-		nnum1 = 0;
+		nnum0 = 0;
+		obsMove[0].style.left = 150 + Math.floor(Math.random() *200) + 'px';
 	}
 	if(nnum2 <  420){
-		nnum2 = nnum2 + 3;
+		nnum2 = nnum2 + 2;
 	}
 	else{
 		nnum2 = 0;
+
+		obsMove[2].style.left = 150 + Math.floor(Math.random() *200) + 'px';
 	}
 	if(nnum3 <  420){
-		nnum3 = nnum3 + 3;
+		nnum3 = nnum3 + 2;
 	}
 	else{
 		nnum3 = 0;
+
+		obsMove[3].style.left = 150 + Math.floor(Math.random() *200) + 'px';
 	}
-	if(nnum4 <  420){
-		nnum4 = nnum4 + 3;
+	if(nnum1 <  420){
+		nnum1 = nnum1 + 2;
 	}
 	else{
-		nnum4 = 0;
+		nnum1 = 0;
+
+		obsMove[1].style.left = 150 + Math.floor(Math.random() *200) + 'px';
 	}
 
-	obsMove[0].style.top = nnum1 + 'px';
-	obsMove[1].style.top = nnum2 + 'px';
-	obsMove[2].style.top = nnum3 + 'px';
-	obsMove[3].style.top = nnum4 + 'px';
+	obsMove[0].style.top = nnum0 + 'px';
+	obsMove[1].style.top = nnum1 + 'px';
+	obsMove[2].style.top = nnum2 + 'px';
+	obsMove[3].style.top = nnum3 + 'px';
 
 }
 
