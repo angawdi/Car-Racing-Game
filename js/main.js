@@ -123,44 +123,49 @@ var nnum2 = obsMove[2].offsetTop;
 var nnum3 = obsMove[3].offsetTop;
 
 	if(nnum0 <  520){
-		nnum0 = nnum0 + 3;
+		nnum0 = nnum0 + 1;
 	}
 	else{
 		nnum0 = -5;
 		obsMove[0].style.left = 150 + Math.floor(Math.random() *150) + 'px';
 	}
-	// if(nnum2 <  520){
-	// 	nnum2 = nnum2 + 3;
-	// }
-	// else{
-	// 	nnum2 = -5;
+	if(nnum2 <  520){
+		nnum2 = nnum2 + 1;
+	}
+	else{
+		nnum2 = -5;
 
-	// 	obsMove[2].style.left = 150 + Math.floor(Math.random() *150) + 'px';
-	// }
-	// if(nnum3 <  520){
-	// 	nnum3 = nnum3 + 3;
-	// }
-	// else{
-	// 	nnum3 = -5;
+		obsMove[2].style.left = 150 + Math.floor(Math.random() *150) + 'px';
+	}
+	if(nnum3 <  520){
+		nnum3 = nnum3 + 1;
+	}
+	else{
+		nnum3 = -5;
 
-	// 	obsMove[3].style.left = 150 + Math.floor(Math.random() *0) + 'px';
-	// }
-	// if(nnum1 <  520){
-	// 	nnum1 = nnum1 + 3;
-	// }
-	// else{
-	// 	nnum1 = -5;
+		obsMove[3].style.left = 150 + Math.floor(Math.random() *0) + 'px';
+	}
+	if(nnum1 <  520){
+		nnum1 = nnum1 + 1;
+	}
+	else{
+		nnum1 = -5;
 
-	// 	obsMove[1].style.left = 150 + Math.floor(Math.random() *200) + 'px';
-	// }
+		obsMove[1].style.left = 150 + Math.floor(Math.random() *200) + 'px';
+	}
 
 	obsMove[0].style.top = nnum0 + 'px';
-	// obsMove[1].style.top = nnum1 + 'px';
-	// obsMove[2].style.top = nnum2 + 'px';
-	// obsMove[3].style.top = nnum3 + 'px';
-	if (checkCollide(obsMove[0],car)){
-		alert('lose game');
-	};
+
+	obsMove[1].style.top = nnum1 + 'px';
+
+	obsMove[2].style.top = nnum2 + 'px';
+
+	obsMove[3].style.top = nnum3 + 'px';
+	for (var cc = 0; cc < 4; cc++){
+			if (checkCollide(obsMove[cc],car)){
+		stop();
+	}
+	}
 }
 
 
@@ -225,13 +230,18 @@ function treeMoving(){
 
 
 function checkCollide(obs,car){
-	return (obs.offsetTop == car.offsetTop &&
-		( (obs.offsetLeft -20 < car.offsetLeft) && (car.offsetLeft < obs.offsetLeft + 20)))
+	return ( ((obs.offsetTop < car.offsetTop +40) && 
+		     (obs.offsetTop > car.offsetTop - 40)) &&
+		( (obs.offsetLeft < car.offsetLeft+20) && (car.offsetLeft < obs.offsetLeft + 20)))
 
 }
 function update(){
 	score.innerHTML = setup.gameScore;
 	speed.innerHTML = setup.speed;
+}
+
+function stop(){
+	
 }
 
 function pressKeyOn(event){
