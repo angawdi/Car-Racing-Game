@@ -1,6 +1,11 @@
-
-var score, start, playAnimation, start, speed, background, setup;
+var speed = document.getElementById('speed');
+var score = document.getElementById('score');
+var background = document.getElementById('background');
+var start = document.getElementById('bttStart');
 var playGame = false;
+var playAnimation = requestAnimationFrame(play);
+var setup;
+
 var keys = {
 	ArrowUp: false,
 	ArrowDown: false,
@@ -8,30 +13,24 @@ var keys = {
 	ArrowRight: false
 }
 
-document.addEventListener('DOMContentLoaded', function(){
-	start = document.getElementById('bttStart');
-	document.addEventListener('keydown', pressKeyOn);
-	document.addEventListener('keyup', pressKeyOff);
+start.addEventListener('click', startGame);
+document.addEventListener('keydown', pressKeyOn);
+document.addEventListener('keyup', pressKeyOff);
 
-	speed = document.getElementById('speed');
-	score = document.getElementById('score');
-	playGame = true;
-	start.addEventListener('click', startGame);
-	background = document.getElementById('background');
-
-	playAnimation = requestAnimationFrame(play);
-	console.log(play.textContent);
-
-	
-});
 
 
 
 function startGame(){
 	console.log('lets play');
 	start.style.display = 'none';
+	var tree1 = document.createElement('div');
+	tree1.setAttribute('id', 'tree');
+	tree1.x = 180;
+	tree1.y = 80;
+	background.appendChild(tree1);
+	
 	var temp = document.createElement('div');
-	temp.setAttribute('class', 'playerCar');
+	temp.setAttribute('id', 'playerCar');
 	temp.x = 250;
 	temp.y = 300;
 	background.appendChild(temp);
@@ -39,7 +38,7 @@ function startGame(){
 
 	setup = {
 	element: temp,
-	speed: 1,
+	speed: 9,
 	gameScore: 0,
 	winnerScore: 10,
 	// roadwidth: 250
@@ -51,18 +50,21 @@ function play(){
 	if (playGame){
 		console.log('Game is played');
 		update();
+		treeMoving();
 		///movement
-		if(keys.ArrowUp){
+		if(keys.ArrowUp && setup.element.y >0){
 			setup.element.y -= 1;
 		}
-		if(keys.ArrowDown){
+		if(keys.ArrowDown && setup.element.y < 420){
 			setup.element.y += 1;
 		}
-		if(keys.ArrowRight){
+		if(keys.ArrowRight && setup.element.x < 413){
 			setup.element.x += 1;
+			console.log(setup.element.x);
 		}
-		if(keys.ArrowLeft){
+		if(keys.ArrowLeft && setup.element.x > 151){
 			setup.element.x -= 1;
+			console.log(setup.element.y);
 		}
 
 		setup.element.style.top = setup.element.y + 'px';
@@ -71,17 +73,10 @@ function play(){
 	playAnimation = requestAnimationFrame(play);
 }
 
-
-function pressKeyOn(event){
-	event.preventDefault();
-	console.log(event.key);
-	keys[event.key] = true;
-}
-
-function pressKeyOff(event){
-	event.preventDefault();
-	console.log(keys);
-	keys[event.key] = false;
+function treeMoving(){
+	var move = document.getElementById('tree');
+	console.log(move.offsetTop);
+	
 }
 
 

@@ -12,20 +12,53 @@
 	border-radius: 20px;
 	color: black;
 	background-color: yellow;
-	width: 200px;
-	height: 80px;
-	font-size: 200%;
+	width: 80px;
+	height: 50px;
+	font-size: 100%;
 	z-index: 3;
-	margin: 0 auto;
+
 }
 
-#car {
+.playerCar {
 	position: absolute;
 	height: 80px;
 	width: 40px;
 	bottom: 60px;
-	left: 550px;
+	left: 250px;
 	border-radius: 5px;
-	background-color: red;
+	background-image: url('../car1.png');
+	background-size: cover;
+	z-index: 11;
+}
+
+.tree {
+	position: absolute;
+	height: 80px;
+	width: 90px;
+	top: 60px;
+	left: 50px;
+	background-image: url('../tree.png');
+	background-size: cover;
+	z-index: 11;
+}
+
+.road {
+	position: relative;
+	height: 50px;
+	width: 300px;
+	bottom: 0;
+	left: 150px;
+	background-color: grey;
 	z-index: 10;
+}
+
+.road:before{
+    content: "|";
+    vertical-align: top;
+    color:white;
+    width:5px;
+    height:10px;
+    line-height: 30px;
+    left:50%;
+    position: absolute;
 }
