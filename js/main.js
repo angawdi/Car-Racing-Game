@@ -179,7 +179,7 @@ var nnum3 = obsMove[3].offsetTop;
 	obsMove[3].style.top = nnum3 + 'px';
 	for (var cc = 0; cc < 4; cc++){
 			if (checkCollide(obsMove[cc],car)){
-		stop();
+		stopGame();
 	}
 	}
 }
@@ -256,20 +256,22 @@ function update(){
 	speed.innerHTML = setup.speed;
 }
 
-function stop(){
-	clearGame();
-	document.getElementById('headline').innerHTML = 'Game Over';
+function stopGame(){
 
+	clearGame();
+//	document.getElementById('headline').innerHTML = 'Game Over';
+	document.getElementById('level').innerHTML = 'You Lose';
 }
 
 function checkWin(){
 	if(numScore === 10){
+
 		clearGame();
 		document.getElementById('headline').innerHTML = 'You Win!';
-
 	}
 }
 function clearGame(){
+	numScore = 0;
 		obsMove[0].style.display = 'none';
 	obsMove[1].style.display = 'none';
 
