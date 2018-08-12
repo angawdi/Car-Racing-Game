@@ -100,7 +100,7 @@ function play(){
 		if(keys.ArrowDown && setup.element.y < 420){
 			setup.element.y += 2;
 		}
-		if(keys.ArrowRight && setup.element.x < 413){
+		if(keys.ArrowRight && setup.element.x < 330){
 			setup.element.x += 2;
 			
 		}
@@ -122,34 +122,34 @@ var nnum1 = obsMove[1].offsetTop;
 var nnum2 = obsMove[2].offsetTop;
 var nnum3 = obsMove[3].offsetTop;
 
-	if(nnum0 <  420){
-		nnum0 = nnum0 + 2;
+	if(nnum0 <  520){
+		nnum0 = nnum0 + 3;
 	}
 	else{
-		nnum0 = 0;
-		obsMove[0].style.left = 150 + Math.floor(Math.random() *200) + 'px';
+		nnum0 = -5;
+		obsMove[0].style.left = 150 + Math.floor(Math.random() *150) + 'px';
 	}
-	if(nnum2 <  420){
-		nnum2 = nnum2 + 2;
+	if(nnum2 <  520){
+		nnum2 = nnum2 + 3;
 	}
 	else{
-		nnum2 = 0;
+		nnum2 = -5;
 
-		obsMove[2].style.left = 150 + Math.floor(Math.random() *200) + 'px';
+		obsMove[2].style.left = 150 + Math.floor(Math.random() *150) + 'px';
 	}
-	if(nnum3 <  420){
-		nnum3 = nnum3 + 2;
+	if(nnum3 <  520){
+		nnum3 = nnum3 + 3;
 	}
 	else{
-		nnum3 = 0;
+		nnum3 = -5;
 
-		obsMove[3].style.left = 150 + Math.floor(Math.random() *200) + 'px';
+		obsMove[3].style.left = 150 + Math.floor(Math.random() *0) + 'px';
 	}
-	if(nnum1 <  420){
-		nnum1 = nnum1 + 2;
+	if(nnum1 <  520){
+		nnum1 = nnum1 + 3;
 	}
 	else{
-		nnum1 = 0;
+		nnum1 = -5;
 
 		obsMove[1].style.left = 150 + Math.floor(Math.random() *200) + 'px';
 	}
@@ -177,41 +177,41 @@ function treeMoving(){
 	var num5 = move5.offsetTop;
 	var num6 = move6.offsetTop;
 
-	if(num1 <  420){
+	if(num1 <  520){
 		num1 = num1 + 3;
 	}
 	else{
-		num1 = 0;
+		num1 = -10;
 	}
-	if(num2 <  420){
+	if(num2 <  520){
 		num2 = num2 + 3;
 	}
 	else{
-		num2 = 0;
+		num2 = -10;
 	}
-	if(num3 <  420){
+	if(num3 <  520){
 		num3 = num3 + 3;
 	}
 	else{
-		num3 = 0;
+		num3 = -10;
 	}
-	if(num4 <  420){
+	if(num4 <  520){
 		num4 = num4 + 3;
 	}
 	else{
-		num4 = 0;
+		num4 = -10;
 	}
-	if(num5 <  420){
+	if(num5 <  520){
 		num5 = num5 + 3;
 	}
 	else{
-		num5 = 0;
+		num5 = -10;
 	}
-	if(num6 <  420){
+	if(num6 <  520){
 		num6 = num6 + 3;
 	}
 	else{
-		num6 = 0;
+		num6 = -10;
 	}
 	move1.style.top = num1 + 'px';
 	move2.style.top = num2 + 'px';

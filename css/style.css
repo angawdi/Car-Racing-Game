@@ -22,8 +22,8 @@
 
 #playerCar {
 	position: absolute;
-	height: 80px;
-	width: 40px;
+	height: 40px;
+	width: 20px;
 	bottom: 60px;
 	left: 250px;
 	border-radius: 5px;
@@ -34,8 +34,8 @@
 
 .obstacles {
 	position: absolute;
-	height: 80px;
-	width: 40px;
+	height: 40px;
+	width: 20px;
 	top: 0px;
 	left: 250px;
 	border-radius: 5px;
@@ -113,11 +113,12 @@
 .road {
 	position: relative;
 	height: 50px;
-	width: 300px;
+	width: 200px;
 	bottom: 0;
 	left: 150px;
 	background-color: #FFFEA2;
 	z-index: 10;
+	overflow: hidden;
 }
 
 /*.road:before{
