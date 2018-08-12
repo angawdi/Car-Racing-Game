@@ -67,6 +67,14 @@ function startGame(){
 	background.appendChild(temp);
 	playGame = true;
 
+
+	 for(var o = 0; o <4; o++){
+		var obs = document.createElement('div');
+		obs.setAttribute('class', 'obstacles');
+		obs.style.left = 150 + Math.floor(Math.random() *100*o) + 'px';
+		background.appendChild(obs);
+	 }
+
 	requestAnimationFrame(play);
 
 	setup = {
@@ -83,6 +91,7 @@ function play(){
 	if (playGame){
 		update();
 		treeMoving();
+		obsMoving();
 		///movement
 		if(keys.ArrowUp && setup.element.y >0){
 			setup.element.y -= 2;
@@ -104,6 +113,46 @@ function play(){
 	 }
 	playAnimation = requestAnimationFrame(play);
 }
+
+function obsMoving(){
+var obsMove = document.getElementsByClassName('obstacles');
+var nnum0 = obsMove[0].offsetTop;
+var nnum1 = obsMove[1].offsetTop;
+var nnum2 = obsMove[2].offsetTop;
+var nnum3 = obsMove[3].offsetTop;
+
+	if(nnum1 <  420){
+		nnum1 = nnum1 + 3;
+	}
+	else{
+		nnum1 = 0;
+	}
+	if(nnum2 <  420){
+		nnum2 = nnum2 + 3;
+	}
+	else{
+		nnum2 = 0;
+	}
+	if(nnum3 <  420){
+		nnum3 = nnum3 + 3;
+	}
+	else{
+		nnum3 = 0;
+	}
+	if(nnum4 <  420){
+		nnum4 = nnum4 + 3;
+	}
+	else{
+		nnum4 = 0;
+	}
+
+	obsMove[0].style.top = nnum1 + 'px';
+	obsMove[1].style.top = nnum2 + 'px';
+	obsMove[2].style.top = nnum3 + 'px';
+	obsMove[3].style.top = nnum4 + 'px';
+
+}
+
 
 function treeMoving(){
 	var move1 = document.getElementById('tree1');

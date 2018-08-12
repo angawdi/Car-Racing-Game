@@ -26,9 +26,21 @@
 	bottom: 60px;
 	left: 250px;
 	border-radius: 5px;
-	background-image: url('../car1.png');
+	background-image: url('../car4.jpg');
 	background-size: cover;
 	z-index: 11;
+}
+
+.obstacles {
+	position: absolute;
+	height: 80px;
+	width: 40px;
+	top: 0px;
+	left: 250px;
+	border-radius: 5px;
+	background-image: url('../car3.png');
+	background-size: cover;
+	z-index: 12;
 }
 
 #tree1 {
@@ -103,7 +115,7 @@
 	width: 300px;
 	bottom: 0;
 	left: 150px;
-	background-color: grey;
+	background-color: #FFFEA2;
 	z-index: 10;
 }
 
