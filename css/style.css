@@ -1,5 +1,5 @@
 #background {
-	background-color: green;
+	background-color: #0098FF;
 	height: 500px;
 	width: 700px;
 	position: relative;
@@ -19,7 +19,7 @@
 
 }
 
-.playerCar {
+#playerCar {
 	position: absolute;
 	height: 80px;
 	width: 40px;
@@ -31,12 +31,67 @@
 	z-index: 11;
 }
 
-.tree {
+#tree1 {
 	position: absolute;
 	height: 80px;
 	width: 90px;
-	top: 60px;
+	top: 0px;
 	left: 50px;
+	background-image: url('../tree.png');
+	background-size: cover;
+	z-index: 11;
+}
+
+#tree3 {
+	position: absolute;
+	height: 80px;
+	width: 90px;
+	top: 135px;
+	left: 50px;
+	background-image: url('../tree.png');
+	background-size: cover;
+	z-index: 11;
+}
+
+#tree5 {
+	position: absolute;
+	height: 80px;
+	width: 90px;
+	top: 270px;
+	left: 50px;
+	background-image: url('../tree.png');
+	background-size: cover;
+	z-index: 11;
+}
+
+#tree2 {
+	position: absolute;
+	height: 80px;
+	width: 90px;
+	top: 0px;
+	left: 450px;
+	background-image: url('../tree.png');
+	background-size: cover;
+	z-index: 11;
+}
+
+#tree4 {
+	position: absolute;
+	height: 80px;
+	width: 90px;
+	top: 135px;
+	left: 450px;
+	background-image: url('../tree.png');
+	background-size: cover;
+	z-index: 11;
+}
+
+#tree6 {
+	position: absolute;
+	height: 80px;
+	width: 90px;
+	top: 270px;
+	left: 450px;
 	background-image: url('../tree.png');
 	background-size: cover;
 	z-index: 11;
@@ -52,7 +107,7 @@
 	z-index: 10;
 }
 
-.road:before{
+/*.road:before{
     content: "|";
     vertical-align: top;
     color:white;
@@ -61,4 +116,4 @@
     line-height: 30px;
     left:50%;
     position: absolute;
-}
+}*/
