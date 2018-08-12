@@ -4,7 +4,7 @@ var background = document.getElementById('background');
 var start = document.getElementById('bttStart');
 var playGame = false;
 var playAnimation = requestAnimationFrame(play);
-var setup, obsMove,car;
+var obsMove,car;
 var numScore = 0;
 var keys = {
 	ArrowUp: false,
@@ -23,16 +23,10 @@ document.addEventListener('keyup', pressKeyOff);
 function startGame(){
 	console.log('lets play');
 	start.style.display = 'none';
-
-
-	
-	var temp = document.createElement('div');
-	temp.setAttribute('id', 'playerCar');
-	temp.x = 250;
-	temp.y = 300;
-	background.appendChild(temp);
 	playGame = true;
-	car = temp;
+	
+	car = document.getElementById('playerCar');
+
 
 	 for(var o = 0; o <4; o++){
 		var obs = document.createElement('div');
@@ -44,39 +38,32 @@ function startGame(){
 
 	requestAnimationFrame(play);
 
-	setup = {
-	element: temp,
-	speed: 9,
-	gameScore: 0,
-	winnerScore: 10,
-	// roadwidth: 250
-}
 
 }
 
 function play(){
 	if (playGame){
-//		update();
 		treeMoving();
 		obsMoving();
-		///movement
-		if(keys.ArrowUp && setup.element.y >0){
-			setup.element.y -= 2;
+		var numtop = car.offsetTop;
+		var numleft = car.offsetLeft;
+		if(keys.ArrowUp && numtop >0){
+			numtop -= 2;
 		}
-		if(keys.ArrowDown && setup.element.y < 420){
-			setup.element.y += 2;
+		if(keys.ArrowDown && numtop < 420){
+			numtop += 2;
 		}
-		if(keys.ArrowRight && setup.element.x < 330){
-			setup.element.x += 2;
+		if(keys.ArrowRight && numleft < 330){
+			numleft += 2;
 			
 		}
-		if(keys.ArrowLeft && setup.element.x > 151){
-			setup.element.x -= 2;
+		if(keys.ArrowLeft && numleft > 151){
+			numleft -= 2;
 			
 		}
 
-		setup.element.style.top = setup.element.y + 'px';
-		setup.element.style.left = setup.element.x + 'px';
+		car.style.top = numtop + 'px';
+		car.style.left = numleft + 'px';
 	 }
 	playAnimation = requestAnimationFrame(play);
 }
@@ -217,10 +204,7 @@ function checkCollide(obs,car){
 		( (obs.offsetLeft < car.offsetLeft+20) && (car.offsetLeft < obs.offsetLeft + 20)))
 
 }
-function update(){
-	score.innerHTML = setup.gameScore;
-	speed.innerHTML = setup.speed;
-}
+
 
 function stopGame(){
 
