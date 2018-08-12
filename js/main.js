@@ -77,9 +77,14 @@ function play(){
 
 function treeMoving(){
 	var move = document.getElementById('tree');
-	var num = move.offsetTop + 1;
+	var num = move.offsetTop;
+	if(num <  413){
+		num = num + 1;
+	}
+	else{
+		num = 10;
+	}
 	move.style.top = num + 'px';
-	
 }
 
 
