@@ -4,7 +4,7 @@ var background = document.getElementById('background');
 var start = document.getElementById('bttStart');
 var playGame = false;
 var playAnimation = requestAnimationFrame(play);
-var obsMove,car;
+var obsMove, car, speed;
 var numScore = 0;
 var car = document.getElementById('playerCar');
 var keys = {
@@ -13,12 +13,35 @@ var keys = {
 	ArrowLeft: false,
 	ArrowRight: false
 }
+	start.style.visibility = 'hidden';
+var levelbtt = document.getElementsByClassName('levelbtn');
+levelbtt[0].addEventListener('click', function(){
+	console.log('click');
+	speed = 1;
+	document.getElementById('levelsp').innerHTML = 'Easy';
+	document.getElementById('level').style.display= 'none';
+	start.style.visibility = 'visible';
+});
+
+levelbtt[1].addEventListener('click', function(){
+	console.log('click');
+	speed = 3;
+	document.getElementById('levelsp').innerHTML = 'Medium';
+	document.getElementById('level').style.display= 'none';
+	start.style.visibility = 'visible';
+});
+
+levelbtt[2].addEventListener('click', function(){
+	console.log('click');
+	speed = 5;
+	document.getElementById('levelsp').innerHTML = 'Difficult';
+	document.getElementById('level').style.display= 'none';
+	start.style.visibility = 'visible';
+});
 
 start.addEventListener('click', startGame);
 document.addEventListener('keydown', pressKeyOn);
 document.addEventListener('keyup', pressKeyOff);
-
-
 
 
 function startGame(){
@@ -26,20 +49,14 @@ function startGame(){
 	start.style.visibility = "hidden";
 	playGame = true;
 	
-	car = document.getElementById('playerCar');
-
-
-	 for(var o = 0; o <4; o++){
+	for(var o = 0; o <4; o++){
 		var obs = document.createElement('div');
 		obs.setAttribute('class', 'obstacles');
 		obs.style.left = 150 + Math.floor(Math.random() *100*o) + 'px';
 		obs.style.top = 0 - o*200 + 'px';
 		background.appendChild(obs);
 	 }
-
 	requestAnimationFrame(play);
-
-
 }
 
 function play(){
@@ -55,86 +72,73 @@ function play(){
 			numtop += 2;
 		}
 		if(keys.ArrowRight && numleft < 330){
-			numleft += 2;
-			
+			numleft += 2;			
 		}
 		if(keys.ArrowLeft && numleft > 151){
 			numleft -= 2;
-			
 		}
 
 		car.style.top = numtop + 'px';
 		car.style.left = numleft + 'px';
-	 }
+	}
 	playAnimation = requestAnimationFrame(play);
 }
 
 function obsMoving(){
-obsMove = document.getElementsByClassName('obstacles');
-var nnum0 = obsMove[0].offsetTop;
-var nnum1 = obsMove[1].offsetTop;
-var nnum2 = obsMove[2].offsetTop;
-var nnum3 = obsMove[3].offsetTop;
+	obsMove = document.getElementsByClassName('obstacles');
+	var nnum0 = obsMove[0].offsetTop;
+	var nnum1 = obsMove[1].offsetTop;
+	var nnum2 = obsMove[2].offsetTop;
+	var nnum3 = obsMove[3].offsetTop;
 
 	if(nnum0 <  500){
-		nnum0 = nnum0 + 1;
-	}
-	else{
-
+		nnum0 = nnum0 + speed;
+	}else{
 		numScore++;
-		// document.getElementById('score').innerHTML = '' + numScore;
 		score.innerHTML = '' + numScore;
 		checkWin();
 		nnum0 = -5;
 		obsMove[0].style.left = 150 + Math.floor(Math.random() *150) + 'px';
+	}
 
-	}
 	if(nnum2 <  500){
-		nnum2 = nnum2 + 1;
-	}
-	else{
+		nnum2 = nnum2 + speed;
+	}else{
 		nnum2 = -5;
 		numScore++;
-		// document.getElementsB('score')[0].innerHTML = '' + numScore;
 		score.innerHTML = '' +numScore;
 		checkWin();
 		obsMove[2].style.left = 150 + Math.floor(Math.random() *150) + 'px';
 	}
+
 	if(nnum3 <  500){
-		nnum3 = nnum3 + 1;
-	}
-	else{
+		nnum3 = nnum3 + speed;
+	}else{
 		nnum3 = -5;
 		numScore++;
-		// document.getElementById('score').innerHTML = '' + numScore;
 		score.innerHTML = '' + numScore;
 		checkWin();
 		obsMove[3].style.left = 150 + Math.floor(Math.random() *0) + 'px';
 	}
+	
 	if(nnum1 <  500){
-		nnum1 = nnum1 + 1;
-	}
-	else{
+		nnum1 = nnum1 + speed;
+	}else{
 		nnum1 = -5;
 		numScore++;
-
-		// document.getElementById('score').innerHTML = '' + numScore;
 		score.innerHTML = '' + numScore;
 		checkWin();
 		obsMove[1].style.left = 150 + Math.floor(Math.random() *200) + 'px';
 	}
 
 	obsMove[0].style.top = nnum0 + 'px';
-
 	obsMove[1].style.top = nnum1 + 'px';
-
 	obsMove[2].style.top = nnum2 + 'px';
-
 	obsMove[3].style.top = nnum3 + 'px';
 	for (var cc = 0; cc < 4; cc++){
-			if (checkCollide(obsMove[cc],car)){
-		stopGame();
-	}
+		if (checkCollide(obsMove[cc],car)){
+			stopGame();
+		}
 	}
 }
 
@@ -203,44 +207,23 @@ function checkCollide(obs,car){
 	return ( ((obs.offsetTop < car.offsetTop +40) && 
 		     (obs.offsetTop > car.offsetTop - 40)) &&
 		( (obs.offsetLeft < car.offsetLeft+20) && (car.offsetLeft < obs.offsetLeft + 20)))
-
 }
 
 
 function stopGame(){
 	playGame = false;
 	cancelAnimationFrame(play);
-
-	// clearGame();
-//	document.getElementById('headline').innerHTML = 'Game Over';
 	document.getElementById('headline').innerHTML = 'You Lose';
-	start.style.visibility = 'visible';
 }
 
 function checkWin(){
-	if(numScore === 10){
+	if(numScore === 20){
 	playGame = false;
 	cancelAnimationFrame(play);
 		document.getElementById('headline').innerHTML = 'You Win!';
 	}
 }
-// function clearGame(){
-// 	numScore = 0;
-// 	obsMove[0].style.display = 'none';
-// 	obsMove[1].style.display = 'none';
-// 	obsMove[2].style.display = 'none';
-// 	obsMove[3].style.display = 'none';
 
-// 	document.getElementById('tree1').style.display = 'none';
-// 	document.getElementById('tree2').style.display = 'none';
-// 	document.getElementById('tree3').style.display = 'none';
-// 	document.getElementById('tree4').style.display = 'none';
-// 	document.getElementById('tree5').style.display = 'none';
-// 	document.getElementById('tree6').style.display = 'none';
-// 	car.style.display = 'none';
-
-// 	start.style.visibility = 'visible';
-// 	}
 
 function pressKeyOn(event){
 	event.preventDefault();

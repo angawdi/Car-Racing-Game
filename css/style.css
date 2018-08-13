@@ -25,7 +25,21 @@ position: relative;
 	height: 50px;
 	font-size: 100%;
 	z-index: 20;
+}
 
+
+#level {
+	position: absolute;
+	margin: 240px 150px;
+	z-index: 20;
+
+}
+.levelbtn {
+	width: 63px;
+	height: 50px;
+	font-size: 80%;
+	font-weight: bold;
+	position: relative;
 }
 
 #playerCar {
