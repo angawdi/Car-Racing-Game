@@ -217,7 +217,7 @@ function stopGame(){
 }
 
 function checkWin(){
-	if(numScore === 20){
+	if(numScore === 30){
 	playGame = false;
 	cancelAnimationFrame(play);
 		document.getElementById('headline').innerHTML = 'You Win!';
