@@ -7,6 +7,10 @@ var playAnimation = requestAnimationFrame(play);
 var obsMove, car, speed;
 var numScore = 0;
 var car = document.getElementById('playerCar');
+var collide = document.getElementById('collide');
+var crowd = document.getElementById('crowd');
+var carspeed = document.getElementById('carspeed');
+var point = document.getElementById('point');
 var keys = {
 	ArrowUp: false,
 	ArrowDown: false,
@@ -63,6 +67,7 @@ function play(){
 	if (playGame){
 		treeMoving();
 		obsMoving();
+		carspeed.play();
 		var numtop = car.offsetTop;
 		var numleft = car.offsetLeft;
 		if(keys.ArrowUp && numtop >0){
@@ -91,9 +96,10 @@ function obsMoving(){
 	var nnum2 = obsMove[2].offsetTop;
 	var nnum3 = obsMove[3].offsetTop;
 
-	if(nnum0 <  500){
+	if(nnum0 <  480){
 		nnum0 = nnum0 + speed;
 	}else{
+		point.play();
 		numScore++;
 		score.innerHTML = '' + numScore;
 		checkWin();
@@ -101,9 +107,10 @@ function obsMoving(){
 		obsMove[0].style.left = 150 + Math.floor(Math.random() *150) + 'px';
 	}
 
-	if(nnum2 <  500){
+	if(nnum2 <  480){
 		nnum2 = nnum2 + speed;
 	}else{
+		point.play();
 		nnum2 = -5;
 		numScore++;
 		score.innerHTML = '' +numScore;
@@ -111,9 +118,10 @@ function obsMoving(){
 		obsMove[2].style.left = 150 + Math.floor(Math.random() *150) + 'px';
 	}
 
-	if(nnum3 <  500){
+	if(nnum3 <  480){
 		nnum3 = nnum3 + speed;
 	}else{
+		point.play();
 		nnum3 = -5;
 		numScore++;
 		score.innerHTML = '' + numScore;
@@ -121,9 +129,10 @@ function obsMoving(){
 		obsMove[3].style.left = 150 + Math.floor(Math.random() *0) + 'px';
 	}
 	
-	if(nnum1 <  500){
+	if(nnum1 <  480){
 		nnum1 = nnum1 + speed;
 	}else{
+		point.play();
 		nnum1 = -5;
 		numScore++;
 		score.innerHTML = '' + numScore;
@@ -137,6 +146,7 @@ function obsMoving(){
 	obsMove[3].style.top = nnum3 + 'px';
 	for (var cc = 0; cc < 4; cc++){
 		if (checkCollide(obsMove[cc],car)){
+			collide.play();
 			stopGame();
 		}
 	}
@@ -218,6 +228,7 @@ function stopGame(){
 
 function checkWin(){
 	if(numScore === 30){
+	crowd.play();
 	playGame = false;
 	cancelAnimationFrame(play);
 		document.getElementById('headline').innerHTML = 'You Win!';
