@@ -6,6 +6,7 @@ var playGame = false;
 var playAnimation = requestAnimationFrame(play);
 var obsMove,car;
 var numScore = 0;
+var car = document.getElementById('playerCar');
 var keys = {
 	ArrowUp: false,
 	ArrowDown: false,
@@ -22,7 +23,7 @@ document.addEventListener('keyup', pressKeyOff);
 
 function startGame(){
 	console.log('lets play');
-	start.style.display = 'none';
+	start.style.visibility = "hidden";
 	playGame = true;
 	
 	car = document.getElementById('playerCar');
@@ -207,35 +208,39 @@ function checkCollide(obs,car){
 
 
 function stopGame(){
+	playGame = false;
+	cancelAnimationFrame(play);
 
-	clearGame();
+	// clearGame();
 //	document.getElementById('headline').innerHTML = 'Game Over';
-	document.getElementById('level').innerHTML = 'You Lose';
+	document.getElementById('headline').innerHTML = 'You Lose';
+	start.style.visibility = 'visible';
 }
 
 function checkWin(){
 	if(numScore === 10){
-
-		clearGame();
+	playGame = false;
+	cancelAnimationFrame(play);
 		document.getElementById('headline').innerHTML = 'You Win!';
 	}
 }
-function clearGame(){
-	numScore = 0;
-		obsMove[0].style.display = 'none';
-	obsMove[1].style.display = 'none';
+// function clearGame(){
+// 	numScore = 0;
+// 	obsMove[0].style.display = 'none';
+// 	obsMove[1].style.display = 'none';
+// 	obsMove[2].style.display = 'none';
+// 	obsMove[3].style.display = 'none';
 
-obsMove[2].style.display = 'none';
+// 	document.getElementById('tree1').style.display = 'none';
+// 	document.getElementById('tree2').style.display = 'none';
+// 	document.getElementById('tree3').style.display = 'none';
+// 	document.getElementById('tree4').style.display = 'none';
+// 	document.getElementById('tree5').style.display = 'none';
+// 	document.getElementById('tree6').style.display = 'none';
+// 	car.style.display = 'none';
 
-obsMove[3].style.display = 'none';
-document.getElementById('tree1').style.display = 'none';
-document.getElementById('tree2').style.display = 'none';
-document.getElementById('tree3').style.display = 'none';
-document.getElementById('tree4').style.display = 'none';
-document.getElementById('tree5').style.display = 'none';
-document.getElementById('tree6').style.display = 'none';
-	car.style.display = 'none';
-}
+// 	start.style.visibility = 'visible';
+// 	}
 
 function pressKeyOn(event){
 	event.preventDefault();
