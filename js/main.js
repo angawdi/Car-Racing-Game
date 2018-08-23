@@ -20,7 +20,6 @@ var keys = {
 	start.style.visibility = 'hidden';
 var levelbtt = document.getElementsByClassName('levelbtn');
 levelbtt[0].addEventListener('click', function(){
-	console.log('click');
 	speed = 1;
 	document.getElementById('levelsp').innerHTML = 'Easy';
 	document.getElementById('level').style.display= 'none';
@@ -28,7 +27,6 @@ levelbtt[0].addEventListener('click', function(){
 });
 
 levelbtt[1].addEventListener('click', function(){
-	console.log('click');
 	speed = 3;
 	document.getElementById('levelsp').innerHTML = 'Medium';
 	document.getElementById('level').style.display= 'none';
@@ -36,7 +34,6 @@ levelbtt[1].addEventListener('click', function(){
 });
 
 levelbtt[2].addEventListener('click', function(){
-	console.log('click');
 	speed = 5;
 	document.getElementById('levelsp').innerHTML = 'Difficult';
 	document.getElementById('level').style.display= 'none';
@@ -49,7 +46,6 @@ document.addEventListener('keyup', pressKeyOff);
 
 
 function startGame(){
-	console.log('lets play');
 	start.style.visibility = "hidden";
 	playGame = true;
 	
@@ -238,12 +234,10 @@ function checkWin(){
 
 function pressKeyOn(event){
 	event.preventDefault();
-	console.log(event.key);
 	keys[event.key] = true;
 }
 
 function pressKeyOff(event){
 	event.preventDefault();
-	console.log(keys);
 	keys[event.key] = false;
 }
