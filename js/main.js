@@ -17,6 +17,9 @@ var keys = {
 	ArrowLeft: false,
 	ArrowRight: false
 }
+var move = [];
+var num = [];
+
 	start.style.visibility = 'hidden';
 var levelbtt = document.getElementsByClassName('levelbtn');
 levelbtt[0].addEventListener('click', function(){
@@ -150,62 +153,66 @@ function obsMoving(){
 
 
 function treeMoving(){
-	var move1 = document.getElementById('tree1');
-	var move2 = document.getElementById('tree2');
-	var move3 = document.getElementById('tree3');
-	var move4 = document.getElementById('tree4');
-	var move5 = document.getElementById('tree5');
-	var move6 = document.getElementById('tree6');
+	// var move1 = document.getElementById('tree1');
+	// var move2 = document.getElementById('tree2');
+	// var move3 = document.getElementById('tree3');
+	// var move4 = document.getElementById('tree4');
+	// var move5 = document.getElementById('tree5');
+	// var move6 = document.getElementById('tree6');
+	for(let i=0; i<6; i++){
+		move[i] = document.getElementById('tree'+(i+1));
+	 num[i] = move[i].offsetTop;
+	}
 
-	var num1 = move1.offsetTop;
-	var num2 = move2.offsetTop;
-	var num3 = move3.offsetTop;
-	var num4 = move4.offsetTop;
-	var num5 = move5.offsetTop;
-	var num6 = move6.offsetTop;
+	// var num1 = move[1].offsetTop;
+	// var num2 = move2.offsetTop;
+	// var num3 = move3.offsetTop;
+	// var num4 = move4.offsetTop;
+	// var num5 = move5.offsetTop;
+	// var num6 = move6.offsetTop;
 
-	if(num1 <  520){
-		num1 = num1 + 3;
+	if(num[0] <  520){
+		num[0] = num[0] + 3;
 	}
 	else{
-		num1 = -10;
+		num[0] = -10;
 	}
-	if(num2 <  520){
-		num2 = num2 + 3;
-	}
-	else{
-		num2 = -10;
-	}
-	if(num3 <  520){
-		num3 = num3 + 3;
+	if(num[1] <  520){
+		num[1] = num[1] + 3;
 	}
 	else{
-		num3 = -10;
+		num[1] = -10;
 	}
-	if(num4 <  520){
-		num4 = num4 + 3;
-	}
-	else{
-		num4 = -10;
-	}
-	if(num5 <  520){
-		num5 = num5 + 3;
+	if(num[2] <  520){
+		num[2] = num[2] + 3;
 	}
 	else{
-		num5 = -10;
+		num[2] = -10;
 	}
-	if(num6 <  520){
-		num6 = num6 + 3;
+	if(num[3]<  520){
+		num[3] = num[3] + 3;
 	}
 	else{
-		num6 = -10;
+		num[3]= -10;
 	}
-	move1.style.top = num1 + 'px';
-	move2.style.top = num2 + 'px';
-	move3.style.top = num3 + 'px';
-	move4.style.top = num4 + 'px';
-	move5.style.top = num5 + 'px';
-	move6.style.top = num6 + 'px';
+	if(num[4] <  520){
+		num[4] =num[4] + 3;
+	}
+	else{
+		num[4] = -10;
+	}
+	if(num[5] <  520){
+		num[5] = num[5] + 3;
+	}
+	else{
+		num[5] = -10;
+	}
+	move[0].style.top = num[0] + 'px';
+	move[1].style.top = num[1]+ 'px';
+	move[2].style.top = num[2] + 'px';
+	move[3].style.top = num[3] + 'px';
+	move[4].style.top = num[4] + 'px';
+	move[5].style.top = num[5] + 'px';
 }
 
 
