@@ -6,7 +6,7 @@ var playGame = false;
 var playAnimation = requestAnimationFrame(play);
 var obsMove, car, speed;
 var numScore = 0;
-var car = document.getElementById('playerCar');
+var car = document.getElementById('player-car');
 var collide = document.getElementById('collide');
 var crowd = document.getElementById('crowd');
 var carspeed = document.getElementById('carspeed');
