@@ -66,70 +66,42 @@ position: relative;
 	z-index: 12;
 }
 
-#tree1 {
-	position: absolute;
-	height: 80px;
-	width: 90px;
-	top: 0px;
-	left: 50px;
+.tree {
 	background-image: url('../tree.png');
 	background-size: cover;
 	z-index: 11;
+	position: absolute;
+	height: 80px;
+	width: 90px;
+}
+#tree1 {
+	top: 0px;
+	left: 50px;
 }
 
 #tree3 {
-	position: absolute;
-	height: 80px;
-	width: 90px;
 	top: 135px;
 	left: 50px;
-	background-image: url('../tree.png');
-	background-size: cover;
-	z-index: 11;
 }
 
 #tree5 {
-	position: absolute;
-	height: 80px;
-	width: 90px;
 	top: 270px;
 	left: 50px;
-	background-image: url('../tree.png');
-	background-size: cover;
-	z-index: 11;
 }
 
 #tree2 {
-	position: absolute;
-	height: 80px;
-	width: 90px;
 	top: 0px;
 	left: 360px;
-	background-image: url('../tree.png');
-	background-size: cover;
-	z-index: 11;
 }
 
 #tree4 {
-	position: absolute;
-	height: 80px;
-	width: 90px;
 	top: 135px;
 	left: 360px;
-	background-image: url('../tree.png');
-	background-size: cover;
-	z-index: 11;
 }
 
 #tree6 {
-	position: absolute;
-	height: 80px;
-	width: 90px;
 	top: 270px;
 	left: 360px;
-	background-image: url('../tree.png');
-	background-size: cover;
-	z-index: 11;
 }
 
 .road {
