@@ -22,26 +22,29 @@ var num = [];
 
 	start.style.visibility = 'hidden';
 var levelbtt = document.getElementsByClassName('levelbtn');
-levelbtt[0].addEventListener('click', function(){
-	speed = 1;
-	document.getElementById('levelsp').innerHTML = 'Easy';
-	document.getElementById('level').style.display= 'none';
-	start.style.visibility = 'visible';
-});
+var levelspeed = document.getElementById('levelsp').innerHTML;
 
-levelbtt[1].addEventListener('click', function(){
-	speed = 3;
-	document.getElementById('levelsp').innerHTML = 'Medium';
-	document.getElementById('level').style.display= 'none';
-	start.style.visibility = 'visible';
-});
-
-levelbtt[2].addEventListener('click', function(){
-	speed = 5;
-	document.getElementById('levelsp').innerHTML = 'Difficult';
-	document.getElementById('level').style.display= 'none';
-	start.style.visibility = 'visible';
-});
+for (let i = 0; i<3; i++){
+	levelbtt[i].addEventListener('click', function(){
+		speed = 3;
+		switch(this.innerHTML) {
+			case 'Easy':
+				speed = 1;
+				document.getElementById('levelsp').innerHTML = 'Easy';
+				break;
+			case 'Medium':
+				speed = 3;
+				document.getElementById('levelsp').innerHTML = 'Medium';
+				break;
+			case 'Difficult':
+				speed = 5;
+				document.getElementById('levelsp').innerHTML = 'Difficult';
+				break;
+		}
+		document.getElementById('level').style.display= 'none';
+		start.style.visibility = 'visible';
+	});
+}
 
 start.addEventListener('click', startGame);
 document.addEventListener('keydown', pressKeyOn);
@@ -52,7 +55,7 @@ function startGame(){
 	start.style.visibility = "hidden";
 	playGame = true;
 	
-	for(var o = 0; o <4; o++){
+	for(let o = 0; o <4; o++){
 		var obs = document.createElement('div');
 		obs.setAttribute('class', 'obstacles');
 		obs.style.left = 150 + Math.floor(Math.random() *100*o) + 'px';
